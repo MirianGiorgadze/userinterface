@@ -53,6 +53,7 @@ public class SecondCard extends Form {
         try {
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
             Robot r = new Robot();
+            r.delay(500);
             r.keyPress(KeyEvent.VK_CONTROL);
             r.keyPress(KeyEvent.VK_V);
             r.keyRelease(KeyEvent.VK_CONTROL);
@@ -61,7 +62,7 @@ public class SecondCard extends Form {
             r.keyRelease(KeyEvent.VK_ENTER);
             r.delay(500);
         } catch (AWTException e) {
-            getLogger().error("Can't press buttons with Robot class");
+            AqualityServices.getLogger().error("Can't press buttons with Robot class");
             throw new RuntimeException(e);
         }
     }

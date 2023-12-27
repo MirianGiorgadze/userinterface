@@ -7,7 +7,6 @@ import aquality.selenium.core.utilities.JsonSettingsFile;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import static org.testng.Assert.assertEquals;
 
 public abstract class UserinyerfaceBaseTest {
     @BeforeMethod

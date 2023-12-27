@@ -41,6 +41,19 @@ public class FirstCard extends Form {
         domainTextBox.sendKeys(RandomTestDataUtils.generateRandomDomain(5));
     }
 
+    public void fillForm(String password, String email, String domain) {
+        System.out.println("=======================================");
+        System.out.println(password+email+domain);
+        System.out.println("=======================================");
+        deleteDataFromField(passwordTextBox);
+        passwordTextBox.sendKeys(password);
+        deleteDataFromField(emailTextBox);
+        emailTextBox.sendKeys(email);
+        deleteDataFromField(domainTextBox);
+        domainTextBox.sendKeys(domain);
+    }
+
+
     public void scrollToDotComButtonAndClick() {
         JsActions actions = new JsActions(dotComButton, "scrolling");
         actions.scrollToTheCenter();

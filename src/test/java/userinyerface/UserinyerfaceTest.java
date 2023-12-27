@@ -18,14 +18,14 @@ public class UserinyerfaceTest extends UserinyerfaceBaseTest {
     public void cardsTest() {
         getLogger().info("Step 1: Navigate to home page.");
         WelcomePage welcomePage = new WelcomePage();
-        assertTrue(welcomePage.isDisplayed(), "Welcome page is not opened.");
+        assertTrue(welcomePage.state().isDisplayed(), "Welcome page is not opened.");
 
         getLogger().info("Step 2: Click the link (in text 'Please click HERE to GO to the next page') to navigate the next page.");
         welcomePage.clickOnHereLink();
         getBrowser().waitForPageToLoad();
 
         MainPage mainPage = new MainPage();
-        assertTrue(mainPage.isDisplayed(), "The '1' card is not opened.");
+        assertTrue(mainPage.state().isDisplayed(), "The '1' card is not opened.");
 
         getLogger().info("Step 3: Input random valid password, email, accept the terms of use and click \"next\" button.");
         FirstCard firstCard = new FirstCard();
@@ -36,8 +36,7 @@ public class UserinyerfaceTest extends UserinyerfaceBaseTest {
         firstCard.clickOnNextButton();
 
         SecondCard secondCard = new SecondCard();
-        assertTrue(secondCard.isDisplayed(), "The '2' card is not opened.");
-
+        assertTrue(secondCard.state().isDisplayed(), "The '2' card is not opened.");
         getLogger().info("Step 4: Choose 2 random interests, upload image, click \"Next\" button.");
         secondCard.clickOnThreeCheckbox();
         secondCard.clickOnUploadButton();
@@ -45,14 +44,14 @@ public class UserinyerfaceTest extends UserinyerfaceBaseTest {
         secondCard.clickOnNextButton();
 
         ThirdCard thirdCard = new ThirdCard();
-        assertTrue(thirdCard.isDisplayed(), "The '3' card is not opened.");
+        assertTrue(thirdCard.state().isDisplayed(), "The '3' card is not opened.");
     }
 
     @Test(testName = "Test case 2")
     public void helpFormTest() {
         getLogger().info("Step 1: Navigate to home page.");
         WelcomePage welcomePage = new WelcomePage();
-        assertTrue(welcomePage.isDisplayed(), "Welcome page is not opened.");
+        assertTrue(welcomePage.state().isDisplayed(), "Welcome page is not opened.");
 
         getLogger().info("Step 2: Hide help form.");
         welcomePage.clickOnHereLink();
@@ -67,7 +66,7 @@ public class UserinyerfaceTest extends UserinyerfaceBaseTest {
     public void acceptCookiesTest() {
         getLogger().info("Step 1: Navigate to home page.");
         WelcomePage welcomePage = new WelcomePage();
-        assertTrue(welcomePage.isDisplayed(), "Welcome page is not opened.");
+        assertTrue(welcomePage.state().isDisplayed(), "Welcome page is not opened.");
 
         welcomePage.clickOnHereLink();
         MainPage mainPage = new MainPage();
