@@ -17,12 +17,12 @@ public class WelcomePageSteps {
     }
 
     @Then("Welcome page is {isOpen}")
-    public void welcome_page_is_open(boolean isOpen){
-        assertEquals(welcomePage.state().isDisplayed(), isOpen, "Welcome Page did not open");
+    public void isWelcomePageOpen(boolean isOpen){
+        assertEquals(welcomePage.state().isDisplayed(), isOpen, "Welcome Page was not opened");
     }
 
-    @When("I click cn here link")
-    public void i_click_on_here_link() {
+    @When("I click on here link")
+    public void clickOnHereLink() {
         getLogger().info("Step 2: Click the link (in text 'Please click HERE to GO to the next page') to navigate the next page.");
         welcomePage.clickOnHereLink();
         getBrowser().waitForPageToLoad();

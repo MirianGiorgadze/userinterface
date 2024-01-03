@@ -2,42 +2,42 @@ package userinyerface.stepdefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import userinyerface.forms.SecondCard;
+import userinyerface.forms.SecondCardForm;
 
 import static aquality.selenium.browser.AqualityServices.getLogger;
 import static org.testng.Assert.assertEquals;
 
 public class SecondCardSteps {
 
-    private final SecondCard secondCard;
+    private final SecondCardForm secondCardForm;
 
     public SecondCardSteps(){
-        this.secondCard = new SecondCard();
+        this.secondCardForm = new SecondCardForm();
     }
 
     @Then("Second card is {isOpen}")
-    public void second_card_is_displayed(boolean isOpen){
-        assertEquals(secondCard.state().isDisplayed(), isOpen, "The '2' card is not opened.");
+    public void secondCardIsDisplayed(boolean isOpen){
+        assertEquals(secondCardForm.state().isDisplayed(), isOpen, "The '2' card is not opened.");
     }
 
     @When("I click on three checkbox")
-    public void click_on_three_checkbox(){
+    public void clickOnThreeCheckbox(){
         getLogger().info("Step 4: Choose 2 random interests, upload image, click \"Next\" button.");
-        secondCard.clickOnThreeCheckbox();
+        secondCardForm.clickOnThreeCheckbox();
     }
 
     @When("Click upload button")
-    public void click_upload_button(){
-        secondCard.clickOnUploadButton();
+    public void clickUploadButton(){
+        secondCardForm.clickOnUploadButton();
     }
 
     @When("Send picture")
-    public void send_picture(){
-        secondCard.SendPicture();;
+    public void sendPicture(){
+        secondCardForm.SendPicture();
     }
 
-    @When("Click on secondcard next button")
-    public void click_on_next_button(){
-        secondCard.clickOnNextButton();
+    @When("Click on second card next button")
+    public void clickNextButton(){
+        secondCardForm.clickOnNextButton();
     }
 }

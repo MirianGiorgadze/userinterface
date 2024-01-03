@@ -1,20 +1,20 @@
 package userinyerface.stepdefinitions;
 
 import io.cucumber.java.en.Then;
-import userinyerface.forms.ThirdCard;
+import userinyerface.forms.ThirdCardForm;
 
 import static org.testng.Assert.assertEquals;
 
 public class ThirdCardSteps {
 
-    private final ThirdCard thirdCard;
+    private final ThirdCardForm thirdCardForm;
 
     public ThirdCardSteps(){
-        this.thirdCard = new ThirdCard();
+        this.thirdCardForm = new ThirdCardForm();
     }
 
     @Then("Third card is {isOpen}")
-    public void third_card_is_opened(boolean isOpen){
-        assertEquals(thirdCard.state().waitForDisplayed(), isOpen, "The '3' card is not opened.");
+    public void isThirdCardOpened(boolean isOpen){
+        assertEquals(thirdCardForm.state().waitForDisplayed(), isOpen, "The '3' card was not opened.");
     }
 }

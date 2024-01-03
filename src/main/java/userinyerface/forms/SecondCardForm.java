@@ -16,16 +16,16 @@ import java.util.List;
 
 import static userinyerface.utils.RandomTestDataUtils.ThreeRandomIndexForCheckbox;
 
-public class SecondCard extends Form {
+public class SecondCardForm extends Form {
     private List<Integer> randomList = ThreeRandomIndexForCheckbox();
-    private ICheckBox unselectAll = getElementFactory().getCheckBox(ParameterizedXpathUtils.getXpathForCheckbox(21), "Unselect All Checkbox");
-    private ICheckBox firstRand = getElementFactory().getCheckBox(ParameterizedXpathUtils.getXpathForCheckbox(randomList.get(0)), "First random checkbox");
-    private ICheckBox secondRand = getElementFactory().getCheckBox(ParameterizedXpathUtils.getXpathForCheckbox(randomList.get(1)), "Second random checkbox");
-    private ICheckBox thirdRand = getElementFactory().getCheckBox(ParameterizedXpathUtils.getXpathForCheckbox(randomList.get(2)), "Third random checkbox");
-    private IButton uploadButton = getElementFactory().getButton(By.xpath("//a[contains(@class,'upload')]"), "Upload button");
-    private IButton nextButton = getElementFactory().getButton(By.xpath("//button[text()='Next']"), "Next button");
+    private final ICheckBox unselectAll = getElementFactory().getCheckBox(ParameterizedXpathUtils.getXpathForCheckbox(21), "Unselect All Checkbox");
+    private final ICheckBox firstRand = getElementFactory().getCheckBox(ParameterizedXpathUtils.getXpathForCheckbox(randomList.get(0)), "First random checkbox");
+    private final ICheckBox secondRand = getElementFactory().getCheckBox(ParameterizedXpathUtils.getXpathForCheckbox(randomList.get(1)), "Second random checkbox");
+    private final ICheckBox thirdRand = getElementFactory().getCheckBox(ParameterizedXpathUtils.getXpathForCheckbox(randomList.get(2)), "Third random checkbox");
+    private final IButton uploadButton = getElementFactory().getButton(By.xpath("//a[contains(@class,'upload')]"), "Upload button");
+    private final IButton nextButton = getElementFactory().getButton(By.xpath("//button[text()='Next']"), "Next button");
 
-    public SecondCard() {
+    public SecondCardForm() {
         super(By.xpath("//a[contains(@class,'upload')]"), "Second card form");
     }
 

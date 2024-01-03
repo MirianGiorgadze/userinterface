@@ -5,11 +5,11 @@ import aquality.selenium.core.utilities.ISettingsFile;
 import aquality.selenium.core.utilities.JsonSettingsFile;
 import io.cucumber.java.en.Given;
 
-public class BaseStep {
+public class BaseFormSteps {
+    public final ISettingsFile CONFIG_FILE = new JsonSettingsFile("config.json");
 
     @Given("Navigate to welcome page")
-    public void navigate_to_welcome_page() {
-        ISettingsFile configFile = new JsonSettingsFile("config.json");
-        AqualityServices.getBrowser().goTo(String.valueOf(configFile.getValue("/baseUrl")));
+    public void navigateToWelcomePage() {
+        AqualityServices.getBrowser().goTo(String.valueOf(CONFIG_FILE.getValue("/baseUrl")));
     }
 }

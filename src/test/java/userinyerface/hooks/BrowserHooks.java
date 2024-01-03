@@ -1,21 +1,19 @@
 package userinyerface.hooks;
 
-import aquality.selenium.browser.AqualityServices;
-import aquality.selenium.browser.Browser;
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+
+import static userinyerface.utils.BrowserUtils.maximizeBrowser;
+import static userinyerface.utils.BrowserUtils.quitBrowser;
 
 public class BrowserHooks {
     @Before("@ConfigureDriver")
     public void setUp() {
-        Browser browser = AqualityServices.getBrowser();
-        browser.maximize();
+        maximizeBrowser();
     }
 
     @After
     public void tearDown() {
-        Browser browser = AqualityServices.getBrowser();
-        browser.quit();
+        quitBrowser();
     }
 }

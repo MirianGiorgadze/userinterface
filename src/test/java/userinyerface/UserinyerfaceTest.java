@@ -4,9 +4,9 @@ import aquality.selenium.core.utilities.ISettingsFile;
 import aquality.selenium.core.utilities.JsonSettingsFile;
 import userinyerface.forms.pages.MainPage;
 import userinyerface.forms.pages.WelcomePage;
-import userinyerface.forms.FirstCard;
-import userinyerface.forms.SecondCard;
-import userinyerface.forms.ThirdCard;
+import userinyerface.forms.FirstCardForm;
+import userinyerface.forms.SecondCardForm;
+import userinyerface.forms.ThirdCardForm;
 import org.testng.annotations.Test;
 
 import static aquality.selenium.browser.AqualityServices.getBrowser;
@@ -28,23 +28,23 @@ public class UserinyerfaceTest extends UserinyerfaceBaseTest {
         assertTrue(mainPage.state().isDisplayed(), "The '1' card is not opened.");
 
         getLogger().info("Step 3: Input random valid password, email, accept the terms of use and click \"next\" button.");
-        FirstCard firstCard = new FirstCard();
-        firstCard.fillForm();
-        firstCard.clickOnDropDownOpenerButton();
-        firstCard.scrollToDotComButtonAndClick();
-        firstCard.checkTermCheckbox();
-        firstCard.clickOnNextButton();
+        FirstCardForm firstCardForm = new FirstCardForm();
+        firstCardForm.fillForm();
+        firstCardForm.clickOnDropDownOpenerButton();
+        firstCardForm.scrollTldButtonAndClick(".com");
+        firstCardForm.checkTermCheckbox();
+        firstCardForm.clickOnNextButton();
 
-        SecondCard secondCard = new SecondCard();
-        assertTrue(secondCard.state().isDisplayed(), "The '2' card is not opened.");
+        SecondCardForm secondCardForm = new SecondCardForm();
+        assertTrue(secondCardForm.state().isDisplayed(), "The '2' card is not opened.");
         getLogger().info("Step 4: Choose 2 random interests, upload image, click \"Next\" button.");
-        secondCard.clickOnThreeCheckbox();
-        secondCard.clickOnUploadButton();
-        secondCard.SendPicture();
-        secondCard.clickOnNextButton();
+        secondCardForm.clickOnThreeCheckbox();
+        secondCardForm.clickOnUploadButton();
+        secondCardForm.SendPicture();
+        secondCardForm.clickOnNextButton();
 
-        ThirdCard thirdCard = new ThirdCard();
-        assertTrue(thirdCard.state().isDisplayed(), "The '3' card is not opened.");
+        ThirdCardForm thirdCardForm = new ThirdCardForm();
+        assertTrue(thirdCardForm.state().isDisplayed(), "The '3' card is not opened.");
     }
 
     @Test(testName = "Test case 2")
@@ -67,7 +67,6 @@ public class UserinyerfaceTest extends UserinyerfaceBaseTest {
         getLogger().info("Step 1: Navigate to home page.");
         WelcomePage welcomePage = new WelcomePage();
         assertTrue(welcomePage.state().isDisplayed(), "Welcome page is not opened.");
-
         welcomePage.clickOnHereLink();
         MainPage mainPage = new MainPage();
         mainPage.clickOnAcceptCookiesButton();
@@ -79,9 +78,8 @@ public class UserinyerfaceTest extends UserinyerfaceBaseTest {
         getLogger().info("Step 1: Navigate to home page.");
         WelcomePage welcomePage = new WelcomePage();
         welcomePage.clickOnHereLink();
-
         MainPage mainPage = new MainPage();
-        ISettingsFile testData = new JsonSettingsFile("TestData.json");
+        ISettingsFile testData = new JsonSettingsFile("testData.json");
         assertEquals(mainPage.getTimerValue(), testData.getValue("/startTime"), "Timer is not started from \"00:00\"");
     }
 }
