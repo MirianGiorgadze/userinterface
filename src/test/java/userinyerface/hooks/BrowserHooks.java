@@ -7,6 +7,7 @@ import static userinyerface.utils.BrowserUtils.maximizeBrowser;
 import static userinyerface.utils.BrowserUtils.quitBrowser;
 
 public class BrowserHooks {
+
     @Before("@ConfigureDriver")
     public void setUp() {
         maximizeBrowser();

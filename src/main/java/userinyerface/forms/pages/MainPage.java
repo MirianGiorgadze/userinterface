@@ -30,8 +30,7 @@ public class MainPage extends Form {
     }
 
     public void clickOnAcceptCookiesButton() {
-        acceptCookiesButton.state().waitForClickable();
-        acceptCookiesButton.click();
+        acceptCookiesButton.clickAndWait();
     }
 
     public String getTimerValue() {

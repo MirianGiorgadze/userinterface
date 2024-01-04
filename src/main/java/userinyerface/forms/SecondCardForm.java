@@ -25,7 +25,6 @@ public class SecondCardForm extends Form {
         uploadButton.click();
     }
 
-
     private ICheckBox getCheckbox(Integer index) {
         String locator = String.format(checkboxLocator, index);
         return getElementFactory().getCheckBox(By.xpath(locator), "Random checkbox index:" + index.toString());

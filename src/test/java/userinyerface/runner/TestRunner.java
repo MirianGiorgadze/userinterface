@@ -12,7 +12,6 @@ import io.cucumber.testng.CucumberOptions;
                 "userinyerface.stepdefinitions"
         },
         plugin = {"pretty"}
-
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 
