@@ -1,12 +1,10 @@
 package userinyerface.forms;
 
 import aquality.selenium.browser.AqualityServices;
-import aquality.selenium.elements.actions.JsActions;
 import aquality.selenium.elements.interfaces.IButton;
 import aquality.selenium.elements.interfaces.ICheckBox;
 import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
-import userinyerface.utils.ParameterizedXpathUtils;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -14,14 +12,8 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.List;
 
-import static userinyerface.utils.RandomTestDataUtils.ThreeRandomIndexForCheckbox;
-
 public class SecondCardForm extends Form {
-    private List<Integer> randomList = ThreeRandomIndexForCheckbox();
-    private final ICheckBox unselectAll = getElementFactory().getCheckBox(ParameterizedXpathUtils.getXpathForCheckbox(21), "Unselect All Checkbox");
-    private final ICheckBox firstRand = getElementFactory().getCheckBox(ParameterizedXpathUtils.getXpathForCheckbox(randomList.get(0)), "First random checkbox");
-    private final ICheckBox secondRand = getElementFactory().getCheckBox(ParameterizedXpathUtils.getXpathForCheckbox(randomList.get(1)), "Second random checkbox");
-    private final ICheckBox thirdRand = getElementFactory().getCheckBox(ParameterizedXpathUtils.getXpathForCheckbox(randomList.get(2)), "Third random checkbox");
+    private final String checkboxLocator = "//div[contains(@class,'list')][%d]//span[contains(@class,'checkbox_')]";
     private final IButton uploadButton = getElementFactory().getButton(By.xpath("//a[contains(@class,'upload')]"), "Upload button");
     private final IButton nextButton = getElementFactory().getButton(By.xpath("//button[text()='Next']"), "Next button");
 
@@ -33,16 +25,20 @@ public class SecondCardForm extends Form {
         uploadButton.click();
     }
 
-    public void clickOnThreeCheckbox() {
-        unselectAll.toggle();
-        firstRand.toggle();
-        secondRand.toggle();
-        thirdRand.toggle();
+
+    private ICheckBox getCheckbox(Integer index) {
+        String locator = String.format(checkboxLocator, index);
+        return getElementFactory().getCheckBox(By.xpath(locator), "Random checkbox index:" + index.toString());
+    }
+
+    public void clickCheckboxOnGivenIndices(List<Integer> chosenIndices) {
+        for (int index : chosenIndices) {
+            getCheckbox(index).toggle();
+        }
     }
 
     public void clickOnNextButton() {
-        JsActions jsActions = new JsActions(nextButton, "scrolling");
-        jsActions.scrollToTheCenter();
+        nextButton.getJsActions().scrollToTheCenter();
         nextButton.clickAndWait();
     }
 

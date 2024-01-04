@@ -14,7 +14,7 @@ public class MainPageSteps {
     private final MainPage mainPage;
     private final ISettingsFile testData = new JsonSettingsFile("testData.json");
 
-    public MainPageSteps(){
+    public MainPageSteps() {
         this.mainPage = new MainPage();
     }
 
@@ -24,12 +24,12 @@ public class MainPageSteps {
     }
 
     @When("I click on hide help button")
-    public void clickOnHideHelpButton(){
+    public void clickOnHideHelpButton() {
         mainPage.clickOnHideHelpFormButton();
     }
 
     @Then("Help form is hidden")
-    public void helpFormIsHidden(){
+    public void helpFormIsHidden() {
         assertTrue(mainPage.upperHelpFormButtonIsNotDisplayed(), "Form content is not hidden.");
     }
 
@@ -44,9 +44,8 @@ public class MainPageSteps {
     }
 
     @Then("Timer is started from the value stored in json path {string}")
-    public void isTimeStartedFromZero(String path){
+    public void isTimeStartedFromZero(String path) {
         String expectedTime = testData.getValue(path).toString();
         assertEquals(mainPage.getTimerValue(), expectedTime, "Timer is not started from " + expectedTime);
     }
-
 }

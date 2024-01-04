@@ -1,9 +1,10 @@
 package userinyerface.forms;
 
-import aquality.selenium.elements.interfaces.*;
+import aquality.selenium.elements.interfaces.IButton;
+import aquality.selenium.elements.interfaces.ICheckBox;
+import aquality.selenium.elements.interfaces.ITextBox;
 import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import userinyerface.utils.RandomTestDataUtils;
 
 public class FirstCardForm extends Form {
@@ -27,13 +28,13 @@ public class FirstCardForm extends Form {
         nextButton.click();
     }
 
-    public void fillForm() {
+    public void fillFormWithRandomValues(int emailLength, int domainLength) {
         passwordTextBox.clearAndType(RandomTestDataUtils.generateRandomValidPassword());
-        emailTextBox.clearAndType(RandomTestDataUtils.generateRandomEmail(5));
-        domainTextBox.clearAndType(RandomTestDataUtils.generateRandomDomain(5));
+        emailTextBox.clearAndType(RandomTestDataUtils.generateRandomEmail(emailLength));
+        domainTextBox.clearAndType(RandomTestDataUtils.generateRandomDomain(domainLength));
     }
 
-    public void fillForm(String password, String email, String domain) {
+    public void fillFormWithCustomValues(String password, String email, String domain) {
         passwordTextBox.clearAndType(password);
         emailTextBox.clearAndType(email);
         domainTextBox.clearAndType(domain);
@@ -47,10 +48,5 @@ public class FirstCardForm extends Form {
 
     public void checkTermCheckbox() {
         termsCheckBox.check();
-    }
-
-    private void deleteDataFromField(IElement textBox) {
-        textBox.sendKeys(Keys.CONTROL + "A");
-        textBox.sendKeys(Keys.DELETE);
     }
 }

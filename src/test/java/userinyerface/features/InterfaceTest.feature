@@ -11,10 +11,10 @@ Feature: Interface Test
     When I click on here link
     Then Card one is opened
     When I fill form using data:
-      | Password  | A1q123q1AA|
-      | Email     | testq     |
-      | Domain    | gmail     |
-      | Tld       | .com      |
+      | Password | A1q123q1AA |
+      | Email    | testq      |
+      | Domain   | gmail      |
+      | Tld      | .com       |
 
     And Check term checkBox
     And Click on first card next button
@@ -41,4 +41,4 @@ Feature: Interface Test
   @ConfigureDriver
   Scenario: Close cookie form
     When I click on here link
-    Then Timer is started from the value stored in json path '/startTime'
+    Then Timer is started from the value stored in json path '/mainPage/startTime'

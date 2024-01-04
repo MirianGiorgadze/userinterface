@@ -9,13 +9,17 @@ import userinyerface.forms.SecondCardForm;
 import userinyerface.forms.ThirdCardForm;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 import static aquality.selenium.browser.AqualityServices.getBrowser;
 import static aquality.selenium.browser.AqualityServices.getLogger;
 import static org.testng.Assert.*;
+import static userinyerface.utils.RandomTestDataUtils.getIndicesListForCheckbox;
 
 public class UserinyerfaceTest extends UserinyerfaceBaseTest {
     @Test(testName = "Test case 1")
     public void cardsTest() {
+        ISettingsFile testData = new JsonSettingsFile("testData.json");
         getLogger().info("Step 1: Navigate to home page.");
         WelcomePage welcomePage = new WelcomePage();
         assertTrue(welcomePage.state().isDisplayed(), "Welcome page is not opened.");
@@ -29,7 +33,9 @@ public class UserinyerfaceTest extends UserinyerfaceBaseTest {
 
         getLogger().info("Step 3: Input random valid password, email, accept the terms of use and click \"next\" button.");
         FirstCardForm firstCardForm = new FirstCardForm();
-        firstCardForm.fillForm();
+        int emailLength = Integer.parseInt(testData.getValue("/firstCard/emailLength").toString());
+        int domainLength = Integer.parseInt(testData.getValue("/firstCard/domainLength").toString());
+        firstCardForm.fillFormWithRandomValues(emailLength, domainLength);
         firstCardForm.clickOnDropDownOpenerButton();
         firstCardForm.scrollTldButtonAndClick(".com");
         firstCardForm.checkTermCheckbox();
@@ -38,13 +44,18 @@ public class UserinyerfaceTest extends UserinyerfaceBaseTest {
         SecondCardForm secondCardForm = new SecondCardForm();
         assertTrue(secondCardForm.state().isDisplayed(), "The '2' card is not opened.");
         getLogger().info("Step 4: Choose 2 random interests, upload image, click \"Next\" button.");
-        secondCardForm.clickOnThreeCheckbox();
+        int quantity  = Integer.parseInt(testData.getValue("/secondCard/quantityToCheck").toString());
+        int bound = Integer.parseInt(testData.getValue("/secondCard/checkboxOverallQuantity").toString());
+        int selectIndex = Integer.parseInt(testData.getValue("/secondCard/selectAllCheckboxIndex").toString());
+        int unselectIndex = Integer.parseInt(testData.getValue("/secondCard/unselectAllCheckboxIndex").toString());
+        List<Integer> indices = getIndicesListForCheckbox(quantity, bound, unselectIndex, selectIndex);
+        secondCardForm.clickCheckboxOnGivenIndices(indices);
         secondCardForm.clickOnUploadButton();
         secondCardForm.SendPicture();
         secondCardForm.clickOnNextButton();
 
         ThirdCardForm thirdCardForm = new ThirdCardForm();
-        assertTrue(thirdCardForm.state().isDisplayed(), "The '3' card is not opened.");
+        assertTrue(thirdCardForm.state().waitForDisplayed(), "The '3' card is not opened.");
     }
 
     @Test(testName = "Test case 2")
@@ -80,6 +91,6 @@ public class UserinyerfaceTest extends UserinyerfaceBaseTest {
         welcomePage.clickOnHereLink();
         MainPage mainPage = new MainPage();
         ISettingsFile testData = new JsonSettingsFile("testData.json");
-        assertEquals(mainPage.getTimerValue(), testData.getValue("/startTime"), "Timer is not started from \"00:00\"");
+        assertEquals(mainPage.getTimerValue(), testData.getValue("/mainPage/startTime"), "Timer is not started from \"00:00\"");
     }
 }

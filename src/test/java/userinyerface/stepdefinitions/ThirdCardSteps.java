@@ -9,12 +9,12 @@ public class ThirdCardSteps {
 
     private final ThirdCardForm thirdCardForm;
 
-    public ThirdCardSteps(){
+    public ThirdCardSteps() {
         this.thirdCardForm = new ThirdCardForm();
     }
 
     @Then("Third card is {isOpen}")
-    public void isThirdCardOpened(boolean isOpen){
+    public void isThirdCardOpened(boolean isOpen) {
         assertEquals(thirdCardForm.state().waitForDisplayed(), isOpen, "The '3' card was not opened.");
     }
 }

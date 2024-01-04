@@ -12,12 +12,12 @@ public class WelcomePageSteps {
 
     private final WelcomePage welcomePage;
 
-    public WelcomePageSteps(){
+    public WelcomePageSteps() {
         this.welcomePage = new WelcomePage();
     }
 
     @Then("Welcome page is {isOpen}")
-    public void isWelcomePageOpen(boolean isOpen){
+    public void isWelcomePageOpen(boolean isOpen) {
         assertEquals(welcomePage.state().isDisplayed(), isOpen, "Welcome Page was not opened");
     }
 

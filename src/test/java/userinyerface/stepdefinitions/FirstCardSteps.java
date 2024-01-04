@@ -11,13 +11,13 @@ public class FirstCardSteps {
 
     private final FirstCardForm firstCardForm;
 
-    public FirstCardSteps(){
+    public FirstCardSteps() {
         this.firstCardForm = new FirstCardForm();
     }
 
     @When("I fill form using data:")
     public void fillFormUsingData(@Transpose UserModel userModel) {
-        firstCardForm.fillForm(userModel.getPassword(), userModel.getEmail(), userModel.getDomain());
+        firstCardForm.fillFormWithCustomValues(userModel.getPassword(), userModel.getEmail(), userModel.getDomain());
         firstCardForm.clickOnDropDownOpenerButton();
         firstCardForm.scrollTldButtonAndClick(userModel.getTld());
     }

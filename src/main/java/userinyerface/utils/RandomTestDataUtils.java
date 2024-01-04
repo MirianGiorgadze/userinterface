@@ -16,19 +16,18 @@ public class RandomTestDataUtils {
     private static final String cyrillicCharacters = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
     private static final String cyrillicRandomString = generateRandomCyrillicString(1);
 
-    public static List<Integer> ThreeRandomIndexForCheckbox() {
-        int quantityRandomNumbers = 3;
+    public static List<Integer> getIndicesListForCheckbox(int quantity, int bound, int firstIndex, int badIndex) {
         Random random = new Random();
-        List<Integer> randomNumbersList = new ArrayList<>();
-
-        for (int i = 0; i <= quantityRandomNumbers; i++) {
+        List<Integer> chosenNumbersList = new ArrayList<>();
+        chosenNumbersList.add(firstIndex);
+        for (int i = 0; i < quantity; i++) {
             int number;
-            number = random.nextInt(20) + 1;
-            if (!randomNumbersList.contains(number) && number != 18) {
-                randomNumbersList.add(number);
+            number = random.nextInt(bound) + 1;
+            if (!chosenNumbersList.contains(number) && number != badIndex) {
+                chosenNumbersList.add(number);
             }
         }
-        return randomNumbersList;
+        return chosenNumbersList;
     }
 
     public static String generateRandomCyrillicString(int quantity) {
