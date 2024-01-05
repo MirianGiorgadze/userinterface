@@ -1,4 +1,4 @@
-Feature: Interface Test
+Feature: Web Forms Functionality
 
 
   Background:
