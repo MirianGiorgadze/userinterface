@@ -6,7 +6,6 @@ import userinyerface.forms.ThirdCardForm;
 import static org.testng.Assert.assertEquals;
 
 public class ThirdCardSteps {
-
     private final ThirdCardForm thirdCardForm;
 
     public ThirdCardSteps() {

@@ -6,9 +6,7 @@ import io.cucumber.java.en.When;
 import userinyerface.forms.FirstCardForm;
 import userinyerface.models.UserModel;
 
-
 public class FirstCardSteps {
-
     private final FirstCardForm firstCardForm;
 
     public FirstCardSteps() {
@@ -17,9 +15,11 @@ public class FirstCardSteps {
 
     @When("I fill form using data:")
     public void fillFormUsingData(@Transpose UserModel userModel) {
-        firstCardForm.fillFormWithCustomValues(userModel.getPassword(), userModel.getEmail(), userModel.getDomain());
+        firstCardForm.enterPassword(userModel.password());
+        firstCardForm.enterEmail(userModel.email());
+        firstCardForm.enterDomain(userModel.domain());
         firstCardForm.clickOnDropDownOpenerButton();
-        firstCardForm.scrollTldButtonAndClick(userModel.getTld());
+        firstCardForm.scrollTldButtonAndClick(userModel.tld());
     }
 
     @When("Check term checkBox")

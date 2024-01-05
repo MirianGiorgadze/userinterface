@@ -7,11 +7,29 @@ import org.openqa.selenium.By;
 
 import java.time.Duration;
 
+import static userinyerface.utils.RegexUtils.getMatchingString;
+
 public class MainPage extends Form {
-    private IButton hideHelpFormButton = getElementFactory().getButton(By.xpath("//button[contains(@class,'send')]"), "Hide help form button");
-    private IButton acceptCookiesButton = getElementFactory().getButton(By.xpath("//button[contains(@class,'transparent')]"), "Accept cookies button");
-    private IButton upperHelpFormButton = getElementFactory().getButton(By.xpath("//button[contains(@class,'close')]"), "Upper help form button");
-    private ILabel timer = getElementFactory().getLabel(By.xpath("//div[contains(@class,'timer')]"), "Timer");
+    private enum MainPageElement {
+        SEND("send"),
+        TRANSPARENT("transparent"),
+        CLOSE("close");
+
+        private final String elementKeyword;
+
+        MainPageElement(String elementKeyword) {
+            this.elementKeyword = elementKeyword;
+        }
+
+        private String getXpath() {
+            return String.format("//button[contains(@class,'%s')]", elementKeyword);
+        }
+    }
+
+    private final IButton hideHelpFormButton = getElementFactory().getButton(By.xpath(MainPageElement.SEND.getXpath()), "Hide help form button");
+    private final IButton acceptCookiesButton = getElementFactory().getButton(By.xpath(MainPageElement.TRANSPARENT.getXpath()), "Accept cookies button");
+    private final IButton upperHelpFormButton = getElementFactory().getButton(By.xpath(MainPageElement.CLOSE.getXpath()), "Upper help form button");
+    private final ILabel timer = getElementFactory().getLabel(By.xpath("//div[contains(@class,'timer')]"), "Timer");
 
     public MainPage() {
         super(By.xpath("//span[contains(@class,'terms')]"), "Main page");
@@ -25,8 +43,8 @@ public class MainPage extends Form {
         return acceptCookiesButton.state().isDisplayed();
     }
 
-    public boolean upperHelpFormButtonIsNotDisplayed() {
-        return upperHelpFormButton.state().waitForNotDisplayed(Duration.ofSeconds(15));
+    public boolean upperHelpFormButtonIsNotDisplayed(int waitSeconds) {
+        return upperHelpFormButton.state().waitForNotDisplayed(Duration.ofSeconds(waitSeconds));
     }
 
     public void clickOnAcceptCookiesButton() {
@@ -34,6 +52,6 @@ public class MainPage extends Form {
     }
 
     public String getTimerValue() {
-        return timer.getText().substring(0, 5);
+        return getMatchingString(timer.getText(), "^\\d{2}:\\d{2}");
     }
 }

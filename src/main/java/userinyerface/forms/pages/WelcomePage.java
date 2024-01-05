@@ -5,7 +5,7 @@ import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
 
 public class WelcomePage extends Form {
-    private ILink hereLink = getElementFactory().getLink(By.xpath("//a[contains(@href,'game')]"), "\"HERE\" link");
+    private final ILink hereLink = getElementFactory().getLink(By.xpath("//a[contains(@href,'game')]"), "\"HERE\" link");
 
     public WelcomePage() {
         super(By.xpath("//button[contains(@class,'start')]"), "Welcome Page");

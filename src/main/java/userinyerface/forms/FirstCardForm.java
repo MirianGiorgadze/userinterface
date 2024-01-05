@@ -5,16 +5,31 @@ import aquality.selenium.elements.interfaces.ICheckBox;
 import aquality.selenium.elements.interfaces.ITextBox;
 import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
-import userinyerface.utils.RandomTestDataUtils;
 
 public class FirstCardForm extends Form {
+    private enum FirstCardTextBox {
+        PASSWORD("Password"),
+        EMAIL("email"),
+        DOMAIN("Domain");
+
+        private final String textBoxType;
+
+        FirstCardTextBox(String placeholder) {
+            this.textBoxType = placeholder;
+        }
+
+        private String getXpath() {
+            return String.format("//input[contains(@placeholder,'%s')]", textBoxType);
+        }
+    }
+
     private final IButton dropDownOpenerButton = getElementFactory().getButton(By.xpath("//div[contains(@class,'opener')]"), "Drop-down opener button");
     private final IButton nextButton = getElementFactory().getButton(By.xpath("//a[text()='Next']"), "Next button");
-    private final ITextBox passwordTextBox = getElementFactory().getTextBox(By.xpath("//input[contains(@placeholder,'Password')]"), "Password form");
-    private final ITextBox emailTextBox = getElementFactory().getTextBox(By.xpath("//input[contains(@placeholder,'email')]"), "Email form");
-    private final ITextBox domainTextBox = getElementFactory().getTextBox(By.xpath("//input[contains(@placeholder,'Domain')]"), "Domain form");
+    private final ITextBox passwordTextBox = getElementFactory().getTextBox(By.xpath(FirstCardTextBox.PASSWORD.getXpath()), "Password form");
+    private final ITextBox emailTextBox = getElementFactory().getTextBox(By.xpath(FirstCardTextBox.EMAIL.getXpath()), "Email form");
+    private final ITextBox domainTextBox = getElementFactory().getTextBox(By.xpath(FirstCardTextBox.DOMAIN.getXpath()), "Domain form");
     private final ICheckBox termsCheckBox = getElementFactory().getCheckBox(By.xpath("//span[contains(@class,'checkbox')]"), "Terms & Conditions checkbox");
-    private final String tldButtonLocator = "//div[contains(text(),'%s')]";
+    private static final String TLD_BUTTON_LOCATOR = "//div[contains(text(),'%s')]";
 
     public FirstCardForm() {
         super(By.xpath("//span[contains(@class, 'terms')]"), "First card form");
@@ -28,20 +43,20 @@ public class FirstCardForm extends Form {
         nextButton.click();
     }
 
-    public void fillFormWithRandomValues(int emailLength, int domainLength) {
-        passwordTextBox.clearAndType(RandomTestDataUtils.generateRandomValidPassword());
-        emailTextBox.clearAndType(RandomTestDataUtils.generateRandomEmail(emailLength));
-        domainTextBox.clearAndType(RandomTestDataUtils.generateRandomDomain(domainLength));
+    public void enterPassword(String password) {
+        passwordTextBox.clearAndType(password);
     }
 
-    public void fillFormWithCustomValues(String password, String email, String domain) {
-        passwordTextBox.clearAndType(password);
+    public void enterEmail(String email) {
         emailTextBox.clearAndType(email);
+    }
+
+    public void enterDomain(String domain) {
         domainTextBox.clearAndType(domain);
     }
 
     public void scrollTldButtonAndClick(String chosenTld) {
-        IButton tldButton = getElementFactory().getButton(By.xpath(String.format(tldButtonLocator, chosenTld)), chosenTld + " button from Drop-down list");
+        IButton tldButton = getElementFactory().getButton(By.xpath(String.format(TLD_BUTTON_LOCATOR, chosenTld)), chosenTld + " button from Drop-down list");
         tldButton.getJsActions().scrollToTheCenter();
         tldButton.click();
     }

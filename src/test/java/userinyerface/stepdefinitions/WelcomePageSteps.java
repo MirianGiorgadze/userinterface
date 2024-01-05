@@ -9,7 +9,6 @@ import static aquality.selenium.browser.AqualityServices.getLogger;
 import static org.testng.Assert.assertEquals;
 
 public class WelcomePageSteps {
-
     private final WelcomePage welcomePage;
 
     public WelcomePageSteps() {
