@@ -7,8 +7,8 @@ public enum MainPageButton {
 
     private final String buttonKeyword;
 
-    MainPageButton(String elementKeyword) {
-        this.buttonKeyword = elementKeyword;
+    MainPageButton(String keyword) {
+        this.buttonKeyword = keyword;
     }
 
     public String getValue() {
