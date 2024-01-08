@@ -1,4 +1,4 @@
-Feature: Web Forms Functionality
+Feature: Web_Forms_Functionality
 
 
   Background:

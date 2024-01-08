@@ -16,7 +16,7 @@ public class RandomTestDataUtils {
             if (!chosenNumbersList.contains(number) && number != badIndex) {
                 chosenNumbersList.add(number);
             } else {
-                i -= 1; // I had to consider this to avoid cases when less checkboxes were checked
+                i -= 1;
             }
         }
         return chosenNumbersList;

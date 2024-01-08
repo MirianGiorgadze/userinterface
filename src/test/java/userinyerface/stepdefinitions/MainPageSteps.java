@@ -3,6 +3,7 @@ package userinyerface.stepdefinitions;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import userinyerface.forms.pages.MainPage;
+import userinyerface.forms.pages.MainPageButton;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -23,23 +24,23 @@ public class MainPageSteps {
 
     @When("I click on hide help button")
     public void clickOnHideHelpButton() {
-        mainPage.clickOnHideHelpFormButton();
+        mainPage.clickButton(MainPageButton.HIDE_HELP);
     }
 
     @Then("Help form is hidden")
     public void helpFormIsHidden() {
         int secondsToWait = Integer.parseInt(CONFIG_FILE.getValue("/waits/waitToFormHide").toString());
-        assertTrue(mainPage.upperHelpFormButtonIsNotDisplayed(secondsToWait), "Form content is not hidden.");
+        assertTrue(mainPage.waitButtonIsHidden(MainPageButton.UPPER_HELP, secondsToWait), "Form content is not hidden.");
     }
 
     @When("Click accept cookies button")
     public void clickAcceptCookiesButton() {
-        mainPage.clickOnAcceptCookiesButton();
+        mainPage.clickButton(MainPageButton.ACCEPT_COOKIES);
     }
 
     @Then("Cookie form is {isOpen}")
     public void isCookieFormClosed(boolean isOpen) {
-        assertEquals(mainPage.acceptCookiesButtonIsDisplayed(), isOpen, "Cookie form is not closed");
+        assertEquals(mainPage.buttonIsDisplayed(MainPageButton.ACCEPT_COOKIES), isOpen, "Cookie form is not closed");
     }
 
     @Then("Timer is started from the value stored in json path {string}")

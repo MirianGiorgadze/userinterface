@@ -4,6 +4,7 @@ import io.cucumber.java.Transpose;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import userinyerface.forms.FirstCardForm;
+import userinyerface.forms.FirstCardTextBox;
 import userinyerface.models.UserModel;
 
 public class FirstCardSteps {
@@ -15,9 +16,9 @@ public class FirstCardSteps {
 
     @When("I fill form using data:")
     public void fillFormUsingData(@Transpose UserModel userModel) {
-        firstCardForm.enterPassword(userModel.password());
-        firstCardForm.enterEmail(userModel.email());
-        firstCardForm.enterDomain(userModel.domain());
+        firstCardForm.fillTextBox(FirstCardTextBox.PASSWORD, userModel.password());
+        firstCardForm.fillTextBox(FirstCardTextBox.EMAIL, userModel.email());
+        firstCardForm.fillTextBox(FirstCardTextBox.DOMAIN, userModel.domain());
         firstCardForm.clickOnDropDownOpenerButton();
         firstCardForm.scrollTldButtonAndClick(userModel.tld());
     }

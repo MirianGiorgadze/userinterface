@@ -9,6 +9,7 @@ import java.io.File;
 
 public class FileUtils {
     public static void attachFile(String pathString) {
+
         AqualityServices.getLogger().info("Upload picture on the site");
         File file = new File(pathString);
         StringSelection filePath = new StringSelection(file.getAbsolutePath());
