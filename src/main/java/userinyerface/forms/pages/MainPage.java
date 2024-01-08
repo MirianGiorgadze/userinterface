@@ -16,7 +16,7 @@ public class MainPage extends Form {
         super(By.xpath("//span[contains(@class,'terms')]"), "Main page");
     }
 
-    public boolean waitButtonIsHidden(MainPageButton button, int waitSeconds) {
+    public boolean isButtonHiddenAfterWait(MainPageButton button, int waitSeconds) {
         String buttonName = button.getValue();
         return getElementFactory().getButton(By.xpath(String.format(BUTTON_LOCATOR, buttonName)), buttonName + "Button")
                 .state().waitForNotDisplayed(Duration.ofSeconds(waitSeconds));

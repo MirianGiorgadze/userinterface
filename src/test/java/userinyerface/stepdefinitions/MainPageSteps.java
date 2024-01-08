@@ -30,7 +30,7 @@ public class MainPageSteps {
     @Then("Help form is hidden")
     public void helpFormIsHidden() {
         int secondsToWait = Integer.parseInt(CONFIG_FILE.getValue("/waits/waitToFormHide").toString());
-        assertTrue(mainPage.waitButtonIsHidden(MainPageButton.UPPER_HELP, secondsToWait), "Form content is not hidden.");
+        assertTrue(mainPage.isButtonHiddenAfterWait(MainPageButton.UPPER_HELP, secondsToWait), "Form content is not hidden.");
     }
 
     @When("Click accept cookies button")
