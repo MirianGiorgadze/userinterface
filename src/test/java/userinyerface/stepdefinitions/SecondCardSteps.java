@@ -44,7 +44,7 @@ public class SecondCardSteps {
 
     @When("Send picture")
     public void sendPicture() {
-        FileUtils.sendPicture();
+        FileUtils.attachFile(String.valueOf(TEST_DATA.getValue("/secondCard/imagePath")));
     }
 
     @When("Click on second card next button")

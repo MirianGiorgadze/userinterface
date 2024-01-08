@@ -10,6 +10,7 @@
     "unselectAllCheckboxIndex": 21,
     "selectAllCheckboxIndex": 18,
     "quantityToCheck": 3,
-    "checkboxOverallQuantity": 20
+    "checkboxOverallQuantity": 20,
+    "imagePath": "src/test/resources/Koshi.jpg"
   }
 }
