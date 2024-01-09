@@ -25,7 +25,7 @@ public class FirstCardForm extends Form {
 
     public void fillTextBox(FirstCardTextBox textBox, String value){
         String textBoxName = textBox.getValue();
-        getElementFactory().getTextBox(By.xpath(String.format(TEXTBOX_LOCATOR, textBoxName)), textBoxName + "Text Box").clearAndType(value);
+        getElementFactory().getTextBox(By.xpath(String.format(TEXTBOX_LOCATOR, textBoxName)), textBoxName + " Text Box").clearAndType(value);
     }
 
     public void scrollTldButtonAndClick(String chosenTld) {
