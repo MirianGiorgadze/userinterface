@@ -11,8 +11,6 @@ public class FirstCardForm extends Form {
     private final IButton dropDownOpenerButton = getElementFactory().getButton(By.xpath("//div[contains(@class,'opener')]"), "Drop-down opener button");
     private final IButton nextButton = getElementFactory().getButton(By.xpath("//a[text()='Next']"), "Next button");
     private final ICheckBox termsCheckBox = getElementFactory().getCheckBox(By.xpath("//span[contains(@class,'checkbox')]"), "Terms & Conditions checkbox");
-
-
     public FirstCardForm() {
         super(By.xpath("//span[contains(@class, 'terms')]"), "First card form");
     }
