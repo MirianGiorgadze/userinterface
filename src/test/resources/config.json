@@ -1,0 +1,6 @@
+{
+  "baseUrl": "https://userinyerface.com",
+  "waits": {
+    "waitToFormHide": 15
+  }
+}

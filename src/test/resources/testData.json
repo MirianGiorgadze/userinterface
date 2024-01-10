@@ -1,0 +1,16 @@
+{
+  "mainPage": {
+    "startTime": "00:00"
+  },
+  "firstCard": {
+    "emailLength": 5,
+    "domainLength": 5
+  },
+  "secondCard": {
+    "unselectAllCheckboxIndex": 21,
+    "selectAllCheckboxIndex": 18,
+    "quantityToCheck": 3,
+    "checkboxOverallQuantity": 20,
+    "imagePath": "src/test/resources/Koshi.jpg"
+  }
+}
