@@ -10,6 +10,7 @@ import static org.testng.Assert.assertTrue;
 import static userinyerface.Constants.CONFIG_FILE;
 import static userinyerface.Constants.TEST_DATA;
 
+
 public class MainPageSteps {
     private final MainPage mainPage;
 

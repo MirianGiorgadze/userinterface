@@ -33,6 +33,6 @@ public class MainPage extends Form {
     }
 
     public String getTimerValue() {
-        return getMatchingString(timer.getText(), "^\\d{2}:\\d{2}");
+        return getMatchingString(timer.getText(), Constants.TIME_REG_EXP);
     }
 }
