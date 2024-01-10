@@ -10,7 +10,10 @@ import io.cucumber.testng.CucumberOptions;
                 "userinyerface.transformations",
                 "userinyerface.stepdefinitions"
         },
-        plugin = {"pretty"}
+        plugin = {
+                "pretty",
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
+        }
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 

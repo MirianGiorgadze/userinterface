@@ -186,4 +186,7 @@ gradle-app.setting
 .DS_Store
 .DS_Store?
 ._*
+
+#Allure Report
+allure-results/
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij,maven,gradle
