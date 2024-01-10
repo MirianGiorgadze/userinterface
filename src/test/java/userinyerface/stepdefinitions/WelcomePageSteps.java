@@ -23,7 +23,7 @@ public class WelcomePageSteps {
 
     @When("I click on here link")
     public void clickOnHereLink() {
-        Allure.link("https://userinyerface.com/");
+        Allure.description("Let's check if I can see this string.");
         getLogger().info("Step 2: Click the link (in text 'Please click HERE to GO to the next page') to navigate the next page.");
         welcomePage.clickOnHereLink();
         getBrowser().waitForPageToLoad();
