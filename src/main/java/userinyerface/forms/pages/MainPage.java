@@ -3,6 +3,7 @@ package userinyerface.forms.pages;
 import aquality.selenium.elements.interfaces.ILabel;
 import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
+import userinyerface.utils.RegexConstants;
 
 import java.time.Duration;
 
@@ -33,6 +34,6 @@ public class MainPage extends Form {
     }
 
     public String getTimerValue() {
-        return getMatchingString(timer.getText(), Constants.TIME_REG_EXP);
+        return getMatchingString(timer.getText(), RegexConstants.TIME_REG_EXP);
     }
 }
