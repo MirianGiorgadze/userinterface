@@ -1,3 +1,4 @@
+@allure.label.owner:MirianGiorgadze
 Feature: Web_Forms_Functionality
 
 
@@ -5,8 +6,10 @@ Feature: Web_Forms_Functionality
     Given Navigate to welcome page
     Then  Welcome page is opened
 
+  @critical
   @ConfigureDriver
   Scenario: Cards are Opened
+    I test Here something. Lets see if you write it in the report
 
     When I click on here link
     Then Card one is opened

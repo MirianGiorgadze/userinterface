@@ -2,6 +2,9 @@ package userinyerface.stepdefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Step;
 import userinyerface.forms.pages.MainPage;
 import userinyerface.forms.pages.MainPageButton;
 
@@ -17,6 +20,7 @@ public class MainPageSteps {
         this.mainPage = new MainPage();
     }
 
+    @Step
     @Then("Card one is {isOpen}")
     public void isCardOneOpened(boolean isOpen) {
         assertEquals(mainPage.state().isDisplayed(), isOpen, "The '1' card is not opened.");

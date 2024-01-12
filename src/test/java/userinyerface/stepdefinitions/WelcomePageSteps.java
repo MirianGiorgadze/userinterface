@@ -3,6 +3,9 @@ package userinyerface.stepdefinitions;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Allure;
+import io.qameta.allure.Description;
+import io.qameta.allure.Link;
+import io.qameta.allure.Step;
 import userinyerface.forms.pages.WelcomePage;
 
 import static aquality.selenium.browser.AqualityServices.getBrowser;
@@ -22,8 +25,8 @@ public class WelcomePageSteps {
     }
 
     @When("I click on here link")
+    @Description("HULALLAKOAKSOA")
     public void clickOnHereLink() {
-        Allure.description("Let's check if I can see this string.");
         getLogger().info("Step 2: Click the link (in text 'Please click HERE to GO to the next page') to navigate the next page.");
         welcomePage.clickOnHereLink();
         getBrowser().waitForPageToLoad();
