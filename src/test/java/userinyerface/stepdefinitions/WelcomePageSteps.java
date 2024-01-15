@@ -6,7 +6,7 @@ import userinyerface.forms.pages.WelcomePage;
 
 import static aquality.selenium.browser.AqualityServices.getBrowser;
 import static aquality.selenium.browser.AqualityServices.getLogger;
-import static org.testng.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WelcomePageSteps {
     private final WelcomePage welcomePage;

@@ -3,6 +3,7 @@ package userinyerface.stepdefinitions;
 import io.cucumber.java.Transpose;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
+import io.qameta.allure.Step;
 import userinyerface.forms.FirstCardForm;
 import userinyerface.forms.FirstCardTextBox;
 import userinyerface.models.UserModel;

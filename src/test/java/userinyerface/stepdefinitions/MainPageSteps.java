@@ -2,11 +2,12 @@ package userinyerface.stepdefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.qameta.allure.Allure;
 import userinyerface.forms.pages.MainPage;
 import userinyerface.forms.pages.MainPageButton;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static userinyerface.Constants.CONFIG_FILE;
 import static userinyerface.Constants.TEST_DATA;
 
@@ -19,7 +20,8 @@ public class MainPageSteps {
 
     @Then("Card one is {isOpen}")
     public void isCardOneOpened(boolean isOpen) {
-        assertEquals(mainPage.state().isDisplayed(), isOpen, "The '1' card is not opened.");
+        Allure.description("Hey Hey duude, why don't you get description...");
+        assertEquals( mainPage.state().isDisplayed(), isOpen, "The '1' card is not opened.");
     }
 
     @When("I click on hide help button")
@@ -40,7 +42,7 @@ public class MainPageSteps {
 
     @Then("Cookie form is {isOpen}")
     public void isCookieFormClosed(boolean isOpen) {
-        assertEquals(mainPage.buttonIsDisplayed(MainPageButton.ACCEPT_COOKIES), isOpen, "Cookie form is not closed");
+        assertEquals(mainPage.buttonIsDisplayed(MainPageButton.ACCEPT_COOKIES), isOpen,  "Cookie form is not closed");
     }
 
     @Then("Timer is started from the value stored in json path {string}")

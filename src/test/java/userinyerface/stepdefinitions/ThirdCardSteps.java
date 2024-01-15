@@ -3,7 +3,8 @@ package userinyerface.stepdefinitions;
 import io.cucumber.java.en.Then;
 import userinyerface.forms.ThirdCardForm;
 
-import static org.testng.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class ThirdCardSteps {
     private final ThirdCardForm thirdCardForm;

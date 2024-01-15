@@ -8,7 +8,7 @@ import userinyerface.utils.FileUtils;
 import java.util.List;
 
 import static aquality.selenium.browser.AqualityServices.getLogger;
-import static org.testng.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static userinyerface.Constants.TEST_DATA;
 import static userinyerface.utils.RandomTestDataUtils.getIndexListForCheckbox;
 
