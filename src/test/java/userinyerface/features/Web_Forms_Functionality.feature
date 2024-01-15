@@ -1,3 +1,4 @@
+@allure.label.owner="MirianGiorgadze"
 Feature: Web_Forms_Functionality
 
 
@@ -39,6 +40,6 @@ Feature: Web_Forms_Functionality
     Then Cookie form is closed
 
   @ConfigureDriver
-  Scenario: Close cookie form
+  Scenario: Time started from zeroes
     When I click on here link
     Then Timer is started from the value stored in json path '/mainPage/startTime'

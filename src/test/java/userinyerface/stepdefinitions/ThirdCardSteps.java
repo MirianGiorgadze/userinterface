@@ -1,6 +1,7 @@
 package userinyerface.stepdefinitions;
 
 import io.cucumber.java.en.Then;
+import io.qameta.allure.Step;
 import userinyerface.forms.ThirdCardForm;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,6 +14,7 @@ public class ThirdCardSteps {
         this.thirdCardForm = new ThirdCardForm();
     }
 
+    @Step
     @Then("Third card is {isOpen}")
     public void isThirdCardOpened(boolean isOpen) {
         assertEquals(thirdCardForm.state().waitForDisplayed(), isOpen, "The '3' card was not opened.");

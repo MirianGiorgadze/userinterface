@@ -3,6 +3,7 @@ package userinyerface.stepdefinitions;
 import io.cucumber.java.Transpose;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import userinyerface.forms.FirstCardForm;
 import userinyerface.forms.FirstCardTextBox;
@@ -15,6 +16,7 @@ public class FirstCardSteps {
         this.firstCardForm = new FirstCardForm();
     }
 
+    @Step
     @When("I fill form using data:")
     public void fillFormUsingData(@Transpose UserModel userModel) {
         firstCardForm.fillTextBox(FirstCardTextBox.PASSWORD, userModel.password());
@@ -24,11 +26,13 @@ public class FirstCardSteps {
         firstCardForm.scrollTldButtonAndClick(userModel.tld());
     }
 
+    @Step
     @When("Check term checkBox")
     public void checkTermCheckbox() {
         firstCardForm.checkTermCheckbox();
     }
 
+    @Step
     @And("Click on first card next button")
     public void clickOnNextButton() {
         firstCardForm.clickOnNextButton();

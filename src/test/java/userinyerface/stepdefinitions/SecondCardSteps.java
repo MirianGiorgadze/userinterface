@@ -2,6 +2,7 @@ package userinyerface.stepdefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.qameta.allure.Step;
 import userinyerface.forms.SecondCardForm;
 import userinyerface.utils.FileUtils;
 
@@ -19,11 +20,13 @@ public class SecondCardSteps {
         this.secondCardForm = new SecondCardForm();
     }
 
+    @Step
     @Then("Second card is {isOpen}")
     public void secondCardIsDisplayed(boolean isOpen) {
         assertEquals(secondCardForm.state().isDisplayed(), isOpen, "The '2' card is not opened.");
     }
 
+    @Step
     @When("I click on three checkbox")
     public void clickOnThreeCheckbox() {
         getLogger().info("Step 4: Choose 2 random interests, upload image, click \"Next\" button.");
@@ -37,16 +40,19 @@ public class SecondCardSteps {
         }
     }
 
+    @Step
     @When("Click upload button")
     public void clickUploadButton() {
         secondCardForm.clickOnUploadButton();
     }
 
+    @Step
     @When("Send picture")
     public void sendPicture() {
         FileUtils.attachFile(String.valueOf(TEST_DATA.getValue("/secondCard/imagePath")));
     }
 
+    @Step
     @When("Click on second card next button")
     public void clickNextButton() {
         secondCardForm.clickOnNextButton();
