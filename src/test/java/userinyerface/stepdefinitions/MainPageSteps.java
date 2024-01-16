@@ -28,7 +28,7 @@ public class MainPageSteps {
     @Step
     @When("I click on hide help button")
     public void clickOnHideHelpButton() {
-        Allure.description("Pleeease, I want to say one word...");
+        Allure.description("Test functionality if help form is hidden by clicking on 'Send to bottom' button");
         mainPage.clickButton(MainPageButton.HIDE_HELP);
     }
 
@@ -42,6 +42,7 @@ public class MainPageSteps {
     @Step
     @When("Click accept cookies button")
     public void clickAcceptCookiesButton() {
+        Allure.description("Test functionality if cookie form closes after appropriate click.");
         mainPage.clickButton(MainPageButton.ACCEPT_COOKIES);
     }
 
@@ -55,6 +56,9 @@ public class MainPageSteps {
     @Then("Timer is started from the value stored in json path {string}")
     public void isTimeStartedFromZero(String path) {
         String expectedTime = TEST_DATA.getValue(path).toString();
+        Allure.getLifecycle().updateTestCase(testResult ->
+                testResult.setName("Time Started from " + expectedTime));
+        Allure.description("Testing if time is started from " + expectedTime);
         assertEquals(mainPage.getTimerValue(), expectedTime, "Timer is not started from " + expectedTime);
     }
 }

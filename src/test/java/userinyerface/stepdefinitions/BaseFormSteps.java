@@ -1,6 +1,7 @@
 package userinyerface.stepdefinitions;
 
 import io.cucumber.java.en.Given;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 
 import static userinyerface.Constants.CONFIG_FILE;
@@ -12,6 +13,8 @@ public class BaseFormSteps {
     @Step
     @Given("Navigate to welcome page")
     public void navigateToWelcomePage() {
-        navigateTo(String.valueOf(CONFIG_FILE.getValue("/baseUrl").toString()));
+        String url = CONFIG_FILE.getValue("/baseUrl").toString();
+        navigateTo(url);
+        Allure.link("Tested Website", url);
     }
 }

@@ -2,7 +2,6 @@ package userinyerface.stepdefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import userinyerface.forms.pages.WelcomePage;
 

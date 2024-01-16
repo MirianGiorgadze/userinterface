@@ -1,5 +1,6 @@
 package userinyerface.stepdefinitions;
 
+import aquality.selenium.browser.AqualityServices;
 import io.cucumber.java.Transpose;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
@@ -19,6 +20,8 @@ public class FirstCardSteps {
     @Step
     @When("I fill form using data:")
     public void fillFormUsingData(@Transpose UserModel userModel) {
+        Allure.description("Fill form with valid data and test functionality of next cards.");
+        Allure.link("Form fill web page", AqualityServices.getBrowser().getCurrentUrl() + "/");
         firstCardForm.fillTextBox(FirstCardTextBox.PASSWORD, userModel.password());
         firstCardForm.fillTextBox(FirstCardTextBox.EMAIL, userModel.email());
         firstCardForm.fillTextBox(FirstCardTextBox.DOMAIN, userModel.domain());
