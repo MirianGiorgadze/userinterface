@@ -22,7 +22,7 @@ public class MainPageSteps {
     @Step
     @Then("Card one is {isOpen}")
     public void isCardOneOpened(boolean isOpen) {
-        assertEquals( mainPage.state().isDisplayed(), isOpen, "The '1' card is not opened.");
+        assertEquals(mainPage.state().isDisplayed(), isOpen, "The '1' card is not opened.");
     }
 
     @Step
@@ -49,7 +49,7 @@ public class MainPageSteps {
     @Step
     @Then("Cookie form is {isOpen}")
     public void isCookieFormClosed(boolean isOpen) {
-        assertEquals(mainPage.buttonIsDisplayed(MainPageButton.ACCEPT_COOKIES), isOpen,  "Cookie form is not closed");
+        assertEquals(mainPage.buttonIsDisplayed(MainPageButton.ACCEPT_COOKIES), isOpen, "Cookie form is not closed");
     }
 
     @Step
