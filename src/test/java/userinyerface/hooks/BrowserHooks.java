@@ -7,7 +7,6 @@ import io.cucumber.java.Scenario;
 import io.qameta.allure.Allure;
 
 import java.io.ByteArrayInputStream;
-import java.util.Arrays;
 
 import static userinyerface.utils.BrowserUtils.maximizeBrowser;
 import static userinyerface.utils.BrowserUtils.quitBrowser;
