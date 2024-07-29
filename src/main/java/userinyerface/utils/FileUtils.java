@@ -15,17 +15,18 @@ public class FileUtils {
         StringSelection filePath = new StringSelection(file.getAbsolutePath());
         try {
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
+
             Robot r = new Robot();
-            r.delay(200);
+            r.delay(2000);
             r.keyPress(KeyEvent.VK_CONTROL);
-            r.delay(200);
+            r.delay(2000);
             r.keyPress(KeyEvent.VK_V);
             r.keyRelease(KeyEvent.VK_CONTROL);
             r.keyRelease(KeyEvent.VK_V);
-            r.delay(200);
+            r.delay(1000);
             r.keyPress(KeyEvent.VK_ENTER);
             r.keyRelease(KeyEvent.VK_ENTER);
-            r.delay(500);
+            r.delay(2000);
         } catch (AWTException e) {
             AqualityServices.getLogger().error("Can't press buttons with Robot class");
             throw new RuntimeException(e);

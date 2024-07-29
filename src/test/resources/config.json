@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://userinyerface.com",
+  "baseUrl": "https://the-internet.herokuapp.com/",
   "waits": {
     "waitToFormHide": 15
   }

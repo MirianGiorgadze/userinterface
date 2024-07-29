@@ -15,4 +15,5 @@ public class BrowserUtils {
     public static void navigateTo(String url) {
         AqualityServices.getBrowser().goTo(url);
     }
+
 }
